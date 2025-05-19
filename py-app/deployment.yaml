@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-deployment
+  labels:
+    app: py-app
+  annotations:
+    link.argocd.argoproj.io/external-link: https://hub.docker.com/repository/docker/golamrabbiazad/py-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: py-app
+  template:
+    metadata:
+      labels:
+        app: py-app
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: py-container
+          image: golamrabbiazad/py-app:v1
+          imagePullPolicy: Always
+
