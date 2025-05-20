@@ -4,8 +4,6 @@ metadata:
   name: py-deployment
   labels:
     app: py-app
-  annotations:
-    link.argocd.argoproj.io/external-link: https://hub.docker.com/repository/docker/golamrabbiazad/py-app
 spec:
   replicas: 1
   selector:
@@ -20,6 +18,6 @@ spec:
         - name: regcred
       containers:
         - name: py-container
-          image: golamrabbiazad/py-app:v2
+          image: gcr.io/argocd-gitops/py-app:v1
           imagePullPolicy: Always
 
