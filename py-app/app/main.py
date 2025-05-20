@@ -8,5 +8,9 @@ app = Flask(__name__)
 def msg():
     return "Hello world! Deployed using Argo CD!"
 
+@app.route('/argocd')
+def argocd_msg():
+    return "Isn't Argo CD pretty amazing?"
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0')

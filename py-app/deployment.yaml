@@ -20,6 +20,6 @@ spec:
         - name: regcred
       containers:
         - name: py-container
-          image: golamrabbiazad/py-app:v1
+          image: golamrabbiazad/py-app:v2
           imagePullPolicy: Always
 
